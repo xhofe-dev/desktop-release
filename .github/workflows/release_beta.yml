@@ -92,6 +92,7 @@ jobs:
           cat src-tauri/tauri.conf.json
         env:
           AD_VERSION: ${{ github.ref_name }}
+          TARGET_TRIPLE: ${{ matrix.target }}
 
       - name: Get Rclone version
         id: get-rclone-version
