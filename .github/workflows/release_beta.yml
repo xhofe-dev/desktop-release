@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - beta-release-trigger
   workflow_dispatch:
 
 concurrency:
@@ -21,7 +22,7 @@ jobs:
           owner: alist-org
           keyword: beta
           deletetype: "release" #tag: will delete tags only; release: will delete releases only; tr: will delete both releases and tags
-  
+
   release_beta:
     needs: delete_old_beta
     strategy:
@@ -130,6 +131,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          ref: main
 
       - uses: pnpm/action-setup@v2
         with:
