@@ -80,7 +80,7 @@ jobs:
         id: get-alist-version
         uses: fangqiuming/latest-release-version@v1.2.0-beta
         with:
-          repository: alist-org/alist
+          repository: AlistGo/alist
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get Rclone version
