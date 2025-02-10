@@ -16,6 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'issue_comment' || (github.event.issue.number == 69 && contains(github.event.comment.body, '/release-beta')) }}
     steps:
+
+      - name: Create or update ref
+        id: create-or-update-ref
+        uses: ovsds/create-or-update-ref-action@v1
+        with:
+          ref: tags/beta
+          sha: ${{ github.sha }}
+
       - name: Execute Delete Release/Tag action
         uses: ShivamHS/delete-tag@v1
         with:
