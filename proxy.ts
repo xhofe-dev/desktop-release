@@ -36,8 +36,7 @@ function generateProxy(updater: Updater, proxy: string) {
 
 async function generateProxies() {
   const updater = await getUpdater();
-  generateProxy(updater, "mirror.ghproxy.com");
-  generateProxy(updater, "ghproxy.com");
+  generateProxy(updater, "ghfast.top");
 }
 
 generateProxies();
