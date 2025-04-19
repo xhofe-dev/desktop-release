@@ -14,7 +14,7 @@ jobs:
           - os: macos-latest
             target: x86_64-apple-darwin
             args:
-          - os: ubuntu-20.04
+          - os: ubuntu-22.04
             target: x86_64-unknown-linux-gnu
             args:
           - os: windows-latest
