@@ -65,6 +65,10 @@ jobs:
           repository: AlistGo/desktop
           token: ${{ secrets.MY_TOKEN }}
 
+      - name: Install NSIS (Windows only)
+        if: matrix.os == 'windows-latest'
+        run: choco install nsis -y
+
       - name: Install dependencies (ubuntu only)
         if: matrix.os == 'ubuntu-22.04'
         # You can remove libayatana-appindicator3-dev if you don't use the system tray feature.
