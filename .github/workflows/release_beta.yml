@@ -29,7 +29,7 @@ jobs:
         with:
           token: ${{ secrets.MY_TOKEN }} #generate new PAT and give delete access to it
           repo:  desktop-release
-          owner: alist-org
+          owner: AlistGo
           keyword: beta
           deletetype: "release" #tag: will delete tags only; release: will delete releases only; tr: will delete both releases and tags
 
@@ -62,7 +62,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          repository: alist-dev/desktop
+          repository: AlistGo/desktop
           token: ${{ secrets.MY_TOKEN }}
 
       - name: Install dependencies (ubuntu only)
