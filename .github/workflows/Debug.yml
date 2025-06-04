@@ -1,0 +1,10 @@
+name: Debug Run
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show basic message
+        run: echo "Hello World, this workflow is working!"
