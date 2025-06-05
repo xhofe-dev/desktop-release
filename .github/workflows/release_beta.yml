@@ -67,7 +67,9 @@ jobs:
 
       - name: Install NSIS (Windows only)
         if: matrix.os == 'windows-latest'
-        run: choco install nsis -y
+        run: |
+          choco install nsis -y
+          makensis -VERSION  # 验证安装情况
 
       - name: Install dependencies (ubuntu only)
         if: matrix.os == 'ubuntu-22.04'
@@ -133,7 +135,7 @@ jobs:
           # tagName: ${{ github.ref_name }} # This only works if your workflow triggers on new tags.
           releaseName: "AList Desktop v__VERSION__" # tauri-action replaces \_\_VERSION\_\_ with the app version.
           releaseBody: "See the assets to download and install this version."
-          args: "--target ${{ matrix.target }} ${{ matrix.args }}"
+          args: "--target ${{ matrix.target }} ${{ matrix.args }} --verbose"
           prerelease: true
           tagName: beta
 
