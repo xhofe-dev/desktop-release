@@ -26,10 +26,11 @@ jobs:
 
       - name: Execute Delete Release/Tag action
         uses: ShivamHS/delete-tag@v1
+        continue-on-error: true
         with:
           token: ${{ secrets.MY_TOKEN }} #generate new PAT and give delete access to it
           repo:  desktop-release
-          owner: AlistGo
+          owner: xhofe-dev
           keyword: beta
           deletetype: "release" #tag: will delete tags only; release: will delete releases only; tr: will delete both releases and tags
 
@@ -62,11 +63,11 @@ jobs:
           repository: AlistGo/desktop
           token: ${{ secrets.MY_TOKEN }}
 
-      - name: Install NSIS (Windows only)
-        if: matrix.os == 'windows-latest'
-        run: |
-          choco install nsis -y
-          makensis -VERSION  # 验证安装情况
+      # - name: Install NSIS (Windows only)
+      #   if: matrix.os == 'windows-latest'
+      #   run: |
+      #     choco install nsis -y
+      #     makensis -VERSION  # 验证安装情况
 
       - name: Install dependencies (ubuntu only)
         if: matrix.os == 'ubuntu-22.04'
