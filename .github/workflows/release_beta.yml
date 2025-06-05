@@ -60,7 +60,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          repository: AlistGo/desktop
+          repository: alist-dev/desktop
           token: ${{ secrets.MY_TOKEN }}
 
       # - name: Install NSIS (Windows only)
